@@ -19,7 +19,7 @@ pipeline {
       steps {
         echo 'package maven app'
         sh 'mvn package -DeskipTests'
-        archiveArtifacts '**/target/*.jar'
+        archiveArtifacts 'target/*.jar'
       }
     }
 
