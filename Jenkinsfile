@@ -39,12 +39,18 @@ mvn versions:commit'''
           agent any
           steps {
             script {
-              docker.withRegistry('https://index.docker.io/v1/','dockerlogin') {
-                def commitHash = env.GIT_COMMIT.take(7)
-                def dockerImage = docker.build("murtajakadiyani/sysfoo:${commitHash}", "./")
-                dockerImage.push()
-                dockerImage.push("latest")
-                dockerImage.push("dev")
+              echo "GIT_COMMIT: ${env.GIT_COMMIT}"
+              try {
+                docker.withRegistry('https://index.docker.io/v1/', 'dockerlogin') {
+                  def commitHash = env.GIT_COMMIT.take(7)
+                  def dockerImage = docker.build("murtajakadiyani/sysfoo:${commitHash}", "./")
+                  dockerImage.push()
+                  dockerImage.push("latest")
+                  dockerImage.push("dev")
+                }
+              } catch (Exception e) {
+                echo "Error: ${e.message}"
+                currentBuild.result = 'FAILURE'
               }
             }
 
