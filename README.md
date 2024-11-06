@@ -9,6 +9,20 @@ The Sysfoo application is designed as a learning tool to demonstrate various asp
 
 This application is ideal for individuals learning about Spring Boot, RESTful services, and simple frontend interactions with JavaScript. This is also useful for anyone who would like to implement Devops Practices with this App. 
 
+![Sysfoo Architecture](./docs/h2.jpg)
+
+As part of devops learning you could take this app and
+
+  * Containerize it by writing a Dockerfile 
+  * Setup a dev environment with Docker Compose 
+  * Build a CI Pipeline with Jenkins, Docker, Git 
+  * Deploy using Kubernetes 
+  * Setup Automated Devployments with ArgoCD 
+  * Setup DevSecOps workflows 
+  * Deploy it on Cloud and automate that with Terraform 
+
+These are just a few ideas you could try and then build so much on top of this. 
+
 ## Building the Application
 
 To build and run the Sysfoo application, follow these steps:
@@ -78,13 +92,16 @@ You may have to replace `localhost` with the actual hostname or IP address based
 
 Following is how the front page looks like 
 
-![Sysfoo Web](./sysfoo-web.png)
+![Sysfoo Web](./docs/sysfoo-web.png)
 
 
 
 ## Switching to PostgreSQL Database
 
 This application usesa embded, in memory database called H2 by default. To use PostgreSQL as the database for the Sysfoo application, you need to configure both the application properties and set up the environment appropriately. Here’s how you can switch from the default H2 database to PostgreSQL.
+
+![Sysfoo Architecture](./docs/not_h2.jpg)
+![Sysfoo Architecture with Postgres](./docs/postgres.jpg)
 
 ### Prerequisites
 
