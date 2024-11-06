@@ -39,7 +39,7 @@ mvn versions:commit'''
           agent any
           steps {
             script {
-              docker.withRegistry('https://index.docker.io/v1/', 'dockerlogin') {
+              docker.withRegistry('https://index.docker.io/v1/','dockerlogin') {
                 def commitHash = env.GIT_COMMIT.take(7)
                 def dockerImage = docker.build("murtajakadiyani/sysfoo:${commitHash}", "./")
                 dockerImage.push()
